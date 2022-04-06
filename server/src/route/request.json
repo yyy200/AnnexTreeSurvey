@@ -1,0 +1,30 @@
+{
+  "mode": "drive",
+  "agents": [
+    {
+      "start_location": [43.66530804539382, -79.410210044581],
+      "time_windows": [[0, 7200]]
+    }
+  ],
+  "jobs": [
+    {
+      "location": [43.66699217667477, -79.41173890356701],
+      "time_windows": [
+        [3340, 4450],
+        [9000, 10000]
+      ],
+      "location_index": 2,
+      "duration": "300"
+    }
+  ],
+  "locations": [
+    {
+      "id": "Cool Location 1",
+      "location": [43.66530804539382, -79.410210044581]
+    },
+    {
+      "id": "Cool Location 2",
+      "location": [43.66699217667477, -79.41173890356701]
+    }
+  ]
+}
