@@ -1,22 +1,41 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, {useState} from "react";
 import "./App.css";
+import { Form } from "./components/Form";
+import {List} from "./components/List";
+
+interface Location {
+  coordinates: {lat: string, lng: string}
+}
+export interface IState {
+  people: {
+    name: string, 
+    location: string,
+    date: string, 
+    time:string,
+    numTrees: number
+  }[]
+}
+
 
 function App() {
+
+  const [people, setPeople] = useState<IState["people"]>([
+    {
+      name:"Joe",
+      location: "1000 street",
+      date: "May 6th",
+      time: "10pm",
+      numTrees: 5
+    }
+  ])
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>bro what am i doing</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Annex Tree Surveying Scheduling</h1> 
+        <Form people={people} setPeople={setPeople}/>
       </header>
+      <List people={people}/>
     </div>
   );
 }
