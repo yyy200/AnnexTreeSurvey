@@ -12,8 +12,8 @@ import PhotosUI
 struct TreeLogger: View {
     
     @State var image: Image? = nil
-        @State private var selectedImage: UIImage?
-        @State private var isImagePickerDisplay = false
+    @State private var selectedImage: UIImage?
+    @State private var isImagePickerDisplay = false
     @State var showCaptureImageView: Bool = true
 
     

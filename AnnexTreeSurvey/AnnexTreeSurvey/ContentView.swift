@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    
-    
     var body: some View {
         NavigationView{
             MapView().navigationTitle("ANNEX Tree Survey")
