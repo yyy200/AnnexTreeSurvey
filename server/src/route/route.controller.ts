@@ -1,11 +1,11 @@
 import { RouteService } from './route.service';
-import { Controller, Post } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 
 @Controller('route')
 export class RouteController {
   constructor(private readonly routeService: RouteService) {}
 
-  @Post()
+  @Get()
   getRoute() {
     return this.routeService.getRoute();
   }

@@ -1,15 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { IState as Props } from "../App";
-import useGeoLocation from "../hooks/getGeoLocation";
-// import { Calendar } from './calendar';
-// import { Calendar2 } from './calendar2';
-// import {Calendar3} from './calendar3';
-
-// import Calendar from 'react-calendar'
-// import 'react-calendar/dist/Calendar.css';
+import React, { useEffect, useState } from 'react'
+import {IState as Props} from "../App"
+import useGeoLocation from '../hooks/getGeoLocation';
 
 //@ts-expect-error
 import DateTimePicker from "react-datetime-picker";
+
+import Axios from 'axios'
 
 interface IProps {
   people: Props["people"];
