@@ -10,6 +10,7 @@
 		6F1E4D782806410100EAE27C /* TreeSpeciesClassifier 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 6F1E4D772806410100EAE27C /* TreeSpeciesClassifier 1.mlmodel */; };
 		6F1E4D7A2806423000EAE27C /* TreeClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1E4D792806423000EAE27C /* TreeClassifier.swift */; };
 		6F1E4D7C28065B8F00EAE27C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1E4D7B28065B8F00EAE27C /* UIImage+Extension.swift */; };
+		6F1E4D7E280694BA00EAE27C /* GeoJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1E4D7D280694BA00EAE27C /* GeoJSONModel.swift */; };
 		6F1EDF08280378F600627ECB /* AnnexTreeSurveyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1EDF07280378F600627ECB /* AnnexTreeSurveyApp.swift */; };
 		6F1EDF0A280378F600627ECB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1EDF09280378F600627ECB /* ContentView.swift */; };
 		6F1EDF0C280378F700627ECB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F1EDF0B280378F700627ECB /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		6F1EDF342803853F00627ECB /* TreeLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1EDF332803853F00627ECB /* TreeLogger.swift */; };
 		6F1EDF3D28038FC900627ECB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1EDF3C28038FC900627ECB /* Coordinator.swift */; };
 		6F1EDF3F280391A100627ECB /* UIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1EDF3E280391A100627ECB /* UIViewControllerRepresentable.swift */; };
+		6F5D17F82806FFAB0023B0A0 /* TreeSpeciesClassifier 2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D17F72806FFAB0023B0A0 /* TreeSpeciesClassifier 2.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,7 @@
 		6F1E4D772806410100EAE27C /* TreeSpeciesClassifier 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "TreeSpeciesClassifier 1.mlmodel"; path = "../../../../../../../../var/folders/ck/26ghzxts0wz3fvt55cfy2f7r0000gn/T/com.apple.dt.CreateML.app/sharing/drag/6E7C52A6-E041-4363-AB65-683663EAB3B4/TreeSpeciesClassifier 1.mlmodel"; sourceTree = "<group>"; };
 		6F1E4D792806423000EAE27C /* TreeClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeClassifier.swift; sourceTree = "<group>"; };
 		6F1E4D7B28065B8F00EAE27C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		6F1E4D7D280694BA00EAE27C /* GeoJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoJSONModel.swift; sourceTree = "<group>"; };
 		6F1EDF04280378F600627ECB /* AnnexTreeSurvey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnnexTreeSurvey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F1EDF07280378F600627ECB /* AnnexTreeSurveyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnexTreeSurveyApp.swift; sourceTree = "<group>"; };
 		6F1EDF09280378F600627ECB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +62,7 @@
 		6F1EDF3C28038FC900627ECB /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		6F1EDF3E280391A100627ECB /* UIViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		6F1EDF402803945000627ECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6F5D17F72806FFAB0023B0A0 /* TreeSpeciesClassifier 2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "TreeSpeciesClassifier 2.mlmodel"; path = "../../../../../../../../var/folders/ck/26ghzxts0wz3fvt55cfy2f7r0000gn/T/com.apple.dt.CreateML.app/sharing/drag/19D77241-36D0-46FE-B875-109A2B632C8B/TreeSpeciesClassifier 2.mlmodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				6F1E4D772806410100EAE27C /* TreeSpeciesClassifier 1.mlmodel */,
+				6F5D17F72806FFAB0023B0A0 /* TreeSpeciesClassifier 2.mlmodel */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 				6F1EDF402803945000627ECB /* Info.plist */,
 				6F1EDF07280378F600627ECB /* AnnexTreeSurveyApp.swift */,
 				6F1EDF09280378F600627ECB /* ContentView.swift */,
+				6F1E4D7D280694BA00EAE27C /* GeoJSONModel.swift */,
 				6F1E4D7B28065B8F00EAE27C /* UIImage+Extension.swift */,
 				6F1EDF3528038D2600627ECB /* TreeLogger */,
 				6F1EDF0B280378F700627ECB /* Assets.xcassets */,
@@ -298,9 +304,11 @@
 			files = (
 				6F1EDF0A280378F600627ECB /* ContentView.swift in Sources */,
 				6F1EDF32280383B300627ECB /* MapView.swift in Sources */,
+				6F5D17F82806FFAB0023B0A0 /* TreeSpeciesClassifier 2.mlmodel in Sources */,
 				6F1EDF08280378F600627ECB /* AnnexTreeSurveyApp.swift in Sources */,
 				6F1E4D7C28065B8F00EAE27C /* UIImage+Extension.swift in Sources */,
 				6F1EDF342803853F00627ECB /* TreeLogger.swift in Sources */,
+				6F1E4D7E280694BA00EAE27C /* GeoJSONModel.swift in Sources */,
 				6F1E4D7A2806423000EAE27C /* TreeClassifier.swift in Sources */,
 				6F1EDF3F280391A100627ECB /* UIViewControllerRepresentable.swift in Sources */,
 				6F1EDF3D28038FC900627ECB /* Coordinator.swift in Sources */,
@@ -469,6 +477,7 @@
 				INFOPLIST_FILE = AnnexTreeSurvey/Info.plist;
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "AnnexTreeSurvey camera use";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -501,6 +510,7 @@
 				INFOPLIST_FILE = AnnexTreeSurvey/Info.plist;
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "AnnexTreeSurvey camera use";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

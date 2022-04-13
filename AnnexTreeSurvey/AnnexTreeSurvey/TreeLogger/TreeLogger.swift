@@ -18,8 +18,8 @@ struct TreeLogger: View {
     @State var showCaptureImageView: Bool = true
     @State var classified: Bool = false
     
-    let model = { () -> TreeSpeciesClassifier_1 in
-        let result = try TreeSpeciesClassifier_1(configuration: MLModelConfiguration())
+    let model = { () -> TreeSpeciesClassifier_2 in
+        let result = try TreeSpeciesClassifier_2(configuration: MLModelConfiguration())
         return result;
     }
     @State private var classificationLabel: String = ""
