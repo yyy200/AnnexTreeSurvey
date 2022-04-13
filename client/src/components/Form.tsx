@@ -5,6 +5,8 @@ import useGeoLocation from '../hooks/getGeoLocation';
 //@ts-expect-error
 import DateTimePicker from "react-datetime-picker";
 
+import Axios from 'axios'
+
 interface IProps {
   people: Props["people"];
   setPeople: React.Dispatch<React.SetStateAction<Props["people"]>>;
