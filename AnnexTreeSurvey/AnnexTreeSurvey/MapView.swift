@@ -53,8 +53,7 @@ struct MapView: View {
         ZStack(alignment: .bottom) {
             Map(coordinateRegion: $viewModel.region, showsUserLocation: true).accentColor(Color.mint).frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, minHeight: 0, idealHeight: .infinity, maxHeight: .infinity, alignment: .bottom).ignoresSafeArea().onAppear(perform: viewModel.checkForLocationServices)
             
-            NavigationLink("Log A Tree", destination: TreeLogger()).padding(
-            ).foregroundColor(Color.white).background(Color.mint).clipShape(RoundedRectangle(cornerRadius: 10)).font(.system(size: 30, weight: .bold, design: .rounded))
+            NavigationLink("Log A Tree", destination: TreeLogger()).customStyle()
         }.onAppear(perform: getRoute)
     }
 }

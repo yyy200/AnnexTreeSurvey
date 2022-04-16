@@ -11,7 +11,7 @@ import SwiftUI
 import Vision
 
 class TreeClassifier {
-    let imageClassifierWrapper = try? TreeSpeciesClassifier_1(configuration: MLModelConfiguration())
+    let imageClassifierWrapper = try? TreeSpeciesClassifier_2(configuration: MLModelConfiguration())
     
     func CreateImageClassifier() -> VNCoreMLModel{
         guard let imageClassifier = imageClassifierWrapper else {

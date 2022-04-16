@@ -2,7 +2,7 @@
 //  TreeLogger.swift
 //  AnnexTreeSurvey
 //
-//  Created by Youssef El Mays on 2022-04-10.
+//  Created by Youssef El Mays on 2022-04-10.,
 //
 
 import SwiftUI
@@ -18,20 +18,20 @@ struct TreeLogger: View {
     @State var showCaptureImageView: Bool = true
     @State var classified: Bool = false
     
-    let model = { () -> TreeSpeciesClassifier_2 in
-        let result = try TreeSpeciesClassifier_2(configuration: MLModelConfiguration())
+    @State var showAR : Bool = false
+    
+    let model = { () -> TreeSpeciesClassifier_3 in
+        let result = try TreeSpeciesClassifier_3(configuration: MLModelConfiguration())
         return result;
     }
+    
     @State private var classificationLabel: String = ""
     @State private var confidence: Double = 0
     
     private func classifyImage() {
         guard let image = self.image?.resizableImage(withCapInsets: .zero),
-              let resizedImage = image.resizeImageTo(size: CGSize(width: 224, height: 224)),
-              let buffer = resizedImage.convertToBuffer()
-              else {
-                return
-            }
+              let buffer = image.convertToBuffer()
+        else { return }
         
         let output = try? self.model().prediction(image: buffer)
           if let output = output {
@@ -58,25 +58,29 @@ struct TreeLogger: View {
                   }
                   if(classified) {
                       Text("Tree Successfully Classified as \(classificationLabel.capitalized)")
-                      NavigationLink("Back To Route", destination: MapView()).padding(
-                      ).foregroundColor(Color.white).background(Color.mint).clipShape(RoundedRectangle(cornerRadius: 10)).font(.system(size: 30, weight: .bold, design: .rounded))
+                      HStack{
+                          Button("Measure Tree", action: {showAR.toggle()}).customStyle()
+                          NavigationLink("Back To Route", destination: MapView()).customStyle()
+                      }
                   }
                   else {
                       Text("Tree Not Classified, Please retake Photo")
                       Button("Retake", action:  {
                           self.showCaptureImageView.toggle()
-                    }).padding(
-                    ).foregroundColor(Color.white).background(Color.mint).clipShape(RoundedRectangle(cornerRadius: 10)).font(.system(size: 30, weight: .bold, design: .rounded))
+                      }).customStyle()
                   }
                   Text(String(format: "%.2f", confidence))
               }.onAppear(perform: classifyImage)
-          }
+            }
                   
               
-              if (showCaptureImageView) {
-                  CaptureImageView(isShown: $showCaptureImageView, image: $image)
-              }
+            if (showCaptureImageView) {
+                CaptureImageView(isShown: $showCaptureImageView, image: $image)
             }
+            if(showAR) {
+                    AugRealView()
+            }
+        }
     }
 }
 
