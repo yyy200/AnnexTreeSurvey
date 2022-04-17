@@ -4,8 +4,10 @@ import useGeoLocation from '../hooks/getGeoLocation';
 
 //@ts-expect-error
 import DateTimePicker from "react-datetime-picker";
-
-import Axios from 'axios'
+// import { db } from '../firebase/config';
+import Firebase from 'firebase/app';
+import {getFirestore} from 'firebase/firestore/lite'
+import { collection, addDoc } from "firebase/firestore"; 
 
 interface IProps {
   people: Props["people"];
@@ -13,6 +15,20 @@ interface IProps {
 }
 
 export const Form: React.FC<IProps> = ({ people, setPeople }) => {
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAyXC8wcA_Sp7mlYhIVGQWq_lzZ3mToROM",
+    authDomain: "annexsurvey.firebaseapp.com",
+    projectId: "annexsurvey",
+    storageBucket: "annexsurvey.appspot.com",
+    messagingSenderId: "359466466189",
+    appId: "1:359466466189:web:47046ce81acfb86c6cdbc4",
+    measurementId: "G-GHMY037PGG",
+  };
+
+  const app = Firebase.initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  
   const [input, setInput] = useState<{ [key: string]: any }>({
     name: "",
     location: "",
@@ -20,7 +36,12 @@ export const Form: React.FC<IProps> = ({ people, setPeople }) => {
     numTrees: "",
   });
 
-  console.log(useGeoLocation().coordinates);
+  const [job, setJob] = useState<{ [key: string]: any }>({
+    location: [],
+    duration: 0,
+    timeWindows: [],
+  });
+
   const location = {
     longitude: useGeoLocation().coordinates.lng,
     latitude: useGeoLocation().coordinates.lat,
@@ -42,6 +63,10 @@ export const Form: React.FC<IProps> = ({ people, setPeople }) => {
       ...input,
       location: [location.longitude, location.latitude].join(","),
     });
+    setJob({
+      ...job,
+      location: [parseInt(location.longitude), parseInt(location.latitude)]
+    });
   };
 
   const handleDateChange = (date: Date, dateID: string): void => {
@@ -55,10 +80,25 @@ export const Form: React.FC<IProps> = ({ people, setPeople }) => {
   const addTime = (e: any) => {
     e.preventDefault();
     const timeWindows = [...input.timeWindows];
+    alert("Time Added");
     setInput({
       ...input,
       timeWindows: [...timeWindows, [startdate, enddate]],
     });
+
+    let start_time= startdate.toLocaleTimeString().slice(0,-2);
+    let end_time= enddate.toLocaleTimeString().slice(0,-2);
+    let start_time_formatted = start_time.split(":");
+    let end_time_formatted = end_time.split(":");
+    let start_time_seconds = (+start_time_formatted[0]) * 60 * 60 + (+start_time_formatted[1]) * 60 + (+start_time_formatted[2]); 
+    let end_time_seconds = (+end_time_formatted[0]) * 60 * 60 + (+end_time_formatted[1]) * 60 + (+end_time_formatted[2]);
+    
+    setJob({
+      ...job,
+      timeWindows: [...timeWindows, [start_time_seconds, end_time_seconds]]
+    })
+    
+    
   };
 
   const handleClick = (e: any): void => {
@@ -85,6 +125,18 @@ export const Form: React.FC<IProps> = ({ people, setPeople }) => {
       timeWindows: [],
       location: "",
     });
+
+    setJob({
+      ...job,
+      duration: parseInt(input.numTrees) * 5 * 60
+    })
+
+    // let test = collection(db, 'SurveyResponses');
+    // addDoc(test, {
+    //   answer:"hello"
+    // })
+    // db.collection("SurveyResponses").add({answer: "hello"});
+
   };
 
   return (

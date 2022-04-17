@@ -9,7 +9,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RouteService = void 0;
 const common_1 = require("@nestjs/common");
 const path_1 = require("path");
-const url = 'https://api.geoapify.com/v1/routeplanner?apiKey=1b48259b810e48ddb151889f9ea58db0';
+const url = 'https://api.geoapify.com/v1/routeplanner?apiKey=d8f585e278d14dc3b9062cf387755199';
+const myAPIKey = "d8f585e278d14dc3b9062cf387755199";
 let RouteService = class RouteService {
     getRoute() {
         var axios = require('axios');

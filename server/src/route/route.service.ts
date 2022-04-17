@@ -3,8 +3,11 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import { resourceLimits } from 'worker_threads';
 
+
 const url =
-  'https://api.geoapify.com/v1/routeplanner?apiKey=1b48259b810e48ddb151889f9ea58db0';
+  'https://api.geoapify.com/v1/routeplanner?apiKey=d8f585e278d14dc3b9062cf387755199';
+
+const myAPIKey = "d8f585e278d14dc3b9062cf387755199";
 
 @Injectable()
 export class RouteService {
@@ -25,6 +28,8 @@ export class RouteService {
     // return JSON.stringify(await fetch(url, requestOptions).then(response => response.json()))
     var axios = require('axios');
     var fs = require('fs');
+    // var maplibregl = require('maplibre-gl');
+
     const data = fs
       .readFileSync(join('src', 'route', '/request.json'), 'utf8')
       .toString();
@@ -37,6 +42,17 @@ export class RouteService {
       },
       data: data,
     };
+
+    // const map = new maplibregl.Map({
+    //   container: 'my-map',
+    //   style: `https://maps.geoapify.com/v1/styles/klokantech-basic/style.json?apiKey=${myAPIKey}`,
+    //   center: [-72.79419772520356, 44.53361448499783],
+    //   zoom: 14
+    // });
+    // map.addControl(new maplibregl.NavigationControl());
+
+    // const popup = new maplibregl.Popup();
+    // return map;
 
     return axios(config)
       .then(function (response) {
