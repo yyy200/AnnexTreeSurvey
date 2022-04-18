@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import {IState as Props} from "../App"
-import useGeoLocation from '../hooks/getGeoLocation';
+import React, { useEffect, useState } from "react";
+import { IState as Props } from "../App";
+import useGeoLocation from "../hooks/getGeoLocation";
 
 //@ts-expect-error
 import DateTimePicker from "react-datetime-picker";
 // import { db } from '../firebase/config';
-import Firebase from 'firebase/app';
-import {getFirestore} from 'firebase/firestore/lite'
-import { collection, addDoc } from "firebase/firestore"; 
+// import Firebase from 'firebase/app';
+// import {getFirestore} from 'firebase/firestore/lite'
+// import { collection, addDoc } from "firebase/firestore";
 
 interface IProps {
   people: Props["people"];
@@ -15,7 +15,6 @@ interface IProps {
 }
 
 export const Form: React.FC<IProps> = ({ people, setPeople }) => {
-
   const firebaseConfig = {
     apiKey: "AIzaSyAyXC8wcA_Sp7mlYhIVGQWq_lzZ3mToROM",
     authDomain: "annexsurvey.firebaseapp.com",
@@ -26,9 +25,9 @@ export const Form: React.FC<IProps> = ({ people, setPeople }) => {
     measurementId: "G-GHMY037PGG",
   };
 
-  const app = Firebase.initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  
+  // const app = Firebase.initializeApp(firebaseConfig);
+  // const db = getFirestore(app);
+
   const [input, setInput] = useState<{ [key: string]: any }>({
     name: "",
     location: "",
@@ -65,7 +64,7 @@ export const Form: React.FC<IProps> = ({ people, setPeople }) => {
     });
     setJob({
       ...job,
-      location: [parseInt(location.longitude), parseInt(location.latitude)]
+      location: [parseInt(location.longitude), parseInt(location.latitude)],
     });
   };
 
@@ -86,19 +85,23 @@ export const Form: React.FC<IProps> = ({ people, setPeople }) => {
       timeWindows: [...timeWindows, [startdate, enddate]],
     });
 
-    let start_time= startdate.toLocaleTimeString().slice(0,-2);
-    let end_time= enddate.toLocaleTimeString().slice(0,-2);
+    let start_time = startdate.toLocaleTimeString().slice(0, -2);
+    let end_time = enddate.toLocaleTimeString().slice(0, -2);
     let start_time_formatted = start_time.split(":");
     let end_time_formatted = end_time.split(":");
-    let start_time_seconds = (+start_time_formatted[0]) * 60 * 60 + (+start_time_formatted[1]) * 60 + (+start_time_formatted[2]); 
-    let end_time_seconds = (+end_time_formatted[0]) * 60 * 60 + (+end_time_formatted[1]) * 60 + (+end_time_formatted[2]);
-    
+    let start_time_seconds =
+      +start_time_formatted[0] * 60 * 60 +
+      +start_time_formatted[1] * 60 +
+      +start_time_formatted[2];
+    let end_time_seconds =
+      +end_time_formatted[0] * 60 * 60 +
+      +end_time_formatted[1] * 60 +
+      +end_time_formatted[2];
+
     setJob({
       ...job,
-      timeWindows: [...timeWindows, [start_time_seconds, end_time_seconds]]
-    })
-    
-    
+      timeWindows: [...timeWindows, [start_time_seconds, end_time_seconds]],
+    });
   };
 
   const handleClick = (e: any): void => {
@@ -128,15 +131,14 @@ export const Form: React.FC<IProps> = ({ people, setPeople }) => {
 
     setJob({
       ...job,
-      duration: parseInt(input.numTrees) * 5 * 60
-    })
+      duration: parseInt(input.numTrees) * 5 * 60,
+    });
 
     // let test = collection(db, 'SurveyResponses');
     // addDoc(test, {
     //   answer:"hello"
     // })
     // db.collection("SurveyResponses").add({answer: "hello"});
-
   };
 
   return (
@@ -176,6 +178,11 @@ export const Form: React.FC<IProps> = ({ people, setPeople }) => {
             disableClock={true}
           />
         </div>
+        <ul>
+          {input.timeWindows.map((timeWindow: any, index: number) => (
+            <li>{JSON.stringify(timeWindow)}</li>
+          ))}
+        </ul>
         <button onClick={addTime} className="submit-btn">
           Add Time
         </button>
